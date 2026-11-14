@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-11-14T07:08:22.422Z",
+  "simulation": true,
+  "notice": "架空の農場・注文・天候データです。実際の配送は行いません。",
+  "weather": "午後に雨を想定するテスト用データです。実際の予報ではありません。",
+  "stockKg": 80,
+  "forecastKg": 60,
+  "orders": [
+    {
+      "customer": "海辺の宿（サンプル）",
+      "kg": 30,
+      "due": "2026-11-14T15:08:22.415Z",
+      "address": "西予市 サンプル配送先 C",
+      "note": "シミュレーション専用",
+      "id": "a4f4b5a3-cdf7-4a82-bc16-ef3a54b0485a",
+      "status": "review",
+      "source": "模拟数据",
+      "createdAt": "2026-11-14T07:08:22.415Z"
+    },
+    {
+      "customer": "山本様（サンプル）",
+      "kg": 25,
+      "due": "2026-11-14T14:08:22.415Z",
+      "address": "西予市 サンプル配送先 B",
+      "note": "シミュレーション専用",
+      "id": "c11ede1e-7969-4913-87c3-c818f618fa56",
+      "status": "confirmed",
+      "source": "模拟数据",
+      "createdAt": "2026-11-14T07:08:22.415Z"
+    },
+    {
+      "customer": "田中商店（サンプル）",
+      "kg": 40,
+      "due": "2026-11-14T13:08:22.414Z",
+      "address": "西予市 サンプル配送先 A",
+      "note": "シミュレーション専用",
+      "id": "f7ea5a90-4eb5-4889-a534-4b06deff48e5",
+      "status": "confirmed",
+      "source": "模拟数据",
+      "createdAt": "2026-11-14T07:08:22.415Z"
+    }
+  ],
+  "workers": [
+    {
+      "id": "farmer",
+      "name": "佐藤（収穫・配送）",
+      "skills": [
+        "sort",
+        "pack",
+        "deliver"
+      ],
+      "available": true
+    },
+    {
+      "id": "packing",
+      "name": "山田（選別・梱包）",
+      "skills": [
+        "sort",
+        "pack"
+      ],
+      "available": true
+    },
+    {
+      "id": "driver",
+      "name": "後藤（配送）",
+      "skills": [
+        "deliver"
+      ],
+      "available": true
+    }
+  ],
+  "ruleDraft": {
+    "id": "8b229d93-8cc1-488c-9e11-c804983047ae",
+    "source": "今日は梱包済みの箱だけ発送してください。",
+    "kind": "packed_only_today",
+    "date": "2026-11-14",
+    "status": "draft",
+    "partial": "customer_consent"
+  },
+  "shipment": {
+    "id": "2eaed01d-33d8-44df-b73d-75e337f1bf75",
+    "customer": "山本様（みかん 10 kg・サンプル）",
+    "sameArrival": false,
+    "splitConsent": false,
+    "boxes": [
+      {
+        "id": "MIKAN-A",
+        "kg": 5,
+        "packed": true
+      },
+      {
+        "id": "MIKAN-B",
+        "kg": 5,
+        "packed": false
+      }
+    ]
+  },
+  "boundaryExamples": [
+    {
+      "title": "一箱已装好，一箱未装好；客户同意分批",
+      "allowed": [
+        "A"
+      ],
+      "held": [
+        "B"
+      ],
+      "reason": "客户已同意分批，只发送已装好的箱子，其余继续等待。",
+      "arrivalGuaranteed": false
+    },
+    {
+      "title": "一箱已装好，但客户要求同一天收到",
+      "allowed": [],
+      "held": [
+        "A",
+        "B"
+      ],
+      "reason": "客户要求同一天收到，不能拆开发货；等待全部装好后再确认配送方案。",
+      "arrivalGuaranteed": false
+    },
+    {
+      "title": "一箱已装好，但还没有客户的分批同意",
+      "allowed": [],
+      "held": [
+        "A",
+        "B"
+      ],
+      "reason": "先发一部分需要客户明确同意，请先确认。",
+      "arrivalGuaranteed": false
+    },
+    {
+      "title": "两箱均已装好",
+      "allowed": [
+        "A",
+        "B"
+      ],
+      "held": [],
+      "reason": "全部箱子已装好，可以一起发货；到达日期仍需配送方确认。",
+      "arrivalGuaranteed": false
+    }
+  ]
+}

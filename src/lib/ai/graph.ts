@@ -10,6 +10,7 @@ import {
 } from "@langchain/langgraph";
 
 import { createChatModel } from "./model";
+import { disableExternalTracing } from "../../../scripts/partner-config.mjs";
 
 const AssistantState = new StateSchema({
   messages: MessagesValue,
@@ -17,6 +18,7 @@ const AssistantState = new StateSchema({
 
 /** LangGraph entry point for adding nodes, branches, and tools later. */
 export function createAppGraph() {
+  disableExternalTracing();
   const respond: GraphNode<typeof AssistantState> = async (state, config) => {
     const message = await createChatModel().invoke(state.messages, config);
     return { messages: [message] };

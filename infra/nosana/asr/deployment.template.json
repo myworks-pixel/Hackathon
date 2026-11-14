@@ -1,0 +1,16 @@
+{
+  "version": "0.1",
+  "type": "container",
+  "ops": [
+    {
+      "id": "farm-asr",
+      "type": "container/run",
+      "args": {
+        "image": "YOUR_REGISTRY/farm-asr:YOUR_VERSION",
+        "gpu": true,
+        "expose": 8000,
+        "env": { "WHISPER_MODEL": "small", "INFERENCE_API_KEY": "" }
+      }
+    }
+  ]
+}

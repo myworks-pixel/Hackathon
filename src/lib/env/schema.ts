@@ -1,3 +1,9 @@
+import {
+  NOSANA_DEFAULT_URL,
+  daytonaNetworkPolicy,
+  partnerUrl,
+} from "../../../scripts/partner-config.mjs";
+
 type EnvSource = Readonly<Record<string, string | undefined>>;
 
 function optionalValue(source: EnvSource, key: string): string | undefined {
@@ -47,17 +53,30 @@ export function parseServerEnv(source: EnvSource) {
 
   return {
     NODE_ENV: nodeEnv,
-    AI_MODEL: optionalValue(source, "AI_MODEL"),
-    AI_BASE_URL: optionalHttpUrl(source, "AI_BASE_URL"),
-    OPENAI_API_KEY: optionalValue(source, "OPENAI_API_KEY"),
-    ANTHROPIC_API_KEY: optionalValue(source, "ANTHROPIC_API_KEY"),
-    GOOGLE_GENERATIVE_AI_API_KEY: optionalValue(
-      source,
-      "GOOGLE_GENERATIVE_AI_API_KEY",
-    ),
     TAVILY_API_KEY: optionalValue(source, "TAVILY_API_KEY"),
     DAYTONA_API_KEY: optionalValue(source, "DAYTONA_API_KEY"),
-    DAYTONA_API_URL: optionalHttpUrl(source, "DAYTONA_API_URL"),
+    DAYTONA_API_URL: partnerUrl(source.DAYTONA_API_URL, "DAYTONA_API_URL"),
+    DAYTONA_TARGET: optionalValue(source, "DAYTONA_TARGET"),
+    DAYTONA_NETWORK_POLICY: daytonaNetworkPolicy(source),
+    DAYTONA_CODEAF_SNAPSHOT: optionalValue(source, "DAYTONA_CODEAF_SNAPSHOT"),
+    CODEAF_MODEL: optionalValue(source, "CODEAF_MODEL"),
+    NOSANA_API_KEY: optionalValue(source, "NOSANA_API_KEY"),
+    NOSANA_BASE_URL:
+      partnerUrl(source.NOSANA_BASE_URL, "NOSANA_BASE_URL") ??
+      NOSANA_DEFAULT_URL,
+    NOSANA_MODEL: optionalValue(source, "NOSANA_MODEL"),
+    NOSANA_VISION_BASE_URL: partnerUrl(
+      source.NOSANA_VISION_BASE_URL,
+      "NOSANA_VISION_BASE_URL",
+    ),
+    NOSANA_VISION_API_KEY: optionalValue(source, "NOSANA_VISION_API_KEY"),
+    NOSANA_VISION_MODEL: optionalValue(source, "NOSANA_VISION_MODEL"),
+    NOSANA_ASR_BASE_URL: partnerUrl(
+      source.NOSANA_ASR_BASE_URL,
+      "NOSANA_ASR_BASE_URL",
+    ),
+    NOSANA_ASR_API_KEY: optionalValue(source, "NOSANA_ASR_API_KEY"),
+    NOSANA_ASR_MODEL: optionalValue(source, "NOSANA_ASR_MODEL"),
   };
 }
 

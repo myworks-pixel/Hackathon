@@ -1,0 +1,342 @@
+export const simulationCatalog: ReadonlyArray<
+  readonly [string, string, string]
+> = [
+  ["示例数据", "サンプルデータ", "Sample data"],
+  ["返回实际数据", "実データに戻る", "Return to actual data"],
+  [
+    "CodeAF + Daytona（模拟）",
+    "CodeAF + Daytona（模擬）",
+    "CodeAF + Daytona (simulated)",
+  ],
+  ["模拟测试", "シミュレーション", "Simulation"],
+  ["运行模拟测试", "ローカル回帰検証", "Local regression checks"],
+  [
+    "一句话生成发货规则",
+    "ひと言から発送ルールを作る",
+    "Turn a sentence into a shipping rule",
+  ],
+  ["智能体协作", "エージェントの連携", "Agent activity"],
+  [
+    "智能体正在协作处理。",
+    "エージェントが連携して処理しています。",
+    "Agents are processing this request.",
+  ],
+  [
+    "智能体处理完成。",
+    "エージェントの処理が完了しました。",
+    "Agent processing complete.",
+  ],
+  [
+    "智能体处理未完成。",
+    "エージェントの処理を完了できませんでした。",
+    "Agent processing did not complete.",
+  ],
+  [
+    "运行六个智能体的模拟测试。",
+    "6 エージェントのシミュレーションを実行してください。",
+    "Run the six-agent simulation.",
+  ],
+  ["业务数据库", "業務データベース", "Business database"],
+  ["后台定时任务", "バックグラウンド定期処理", "Scheduled background task"],
+  ["模拟数据", "サンプルデータ", "Sample data"],
+  ["模拟 CSV", "サンプル CSV", "Sample CSV"],
+  ["Nosana（模拟）", "Nosana（シミュレーション）", "Nosana (simulated)"],
+  [
+    "检查未完成作业的期限，并记录超时提醒。",
+    "未完了作業の期限を確認し、遅延を記録しました。",
+    "Checked unfinished task deadlines and recorded overdue alerts.",
+  ],
+  [
+    "按模拟价格表回答送料问题，识别应交给订单智能体的请求。",
+    "サンプル料金表で送料に回答し、注文担当へ渡す依頼を判別しました。",
+    "Answered shipping questions from the sample price list and identified order requests.",
+  ],
+  [
+    "用固定样例适配器转换 CSV，并验证列名、数量和日期。",
+    "固定のサンプル変換器で CSV の列・数量・日付を検証しました。",
+    "Converted CSV with a fixed sample adapter and checked columns, quantities and dates.",
+  ],
+  [
+    "检查相同客户、数量、地址和交付时间，拦截重复订单。",
+    "顧客・数量・住所・日時を照合し、重複注文を除外しました。",
+    "Matched customer, quantity, address and deadline to block duplicate orders.",
+  ],
+  [
+    "检查库存缺口，登记模拟采收，并生成分选、打包和配送前置任务。",
+    "在庫不足を確認し、模擬収穫を登録して選別・梱包・配送作業を作成しました。",
+    "Checked shortages, recorded a simulated harvest and created dependent tasks.",
+  ],
+  [
+    "模拟司机拒单并重新分配，运行本地排程验证时间冲突和交接条件。",
+    "配送の辞退と再割り当てを模擬し、時刻の重複と引渡し条件を検証しました。",
+    "Simulated driver rejection and reassignment; verified scheduling and handover.",
+  ],
+  [
+    "检测配送超时和交接未完成，并验证重复巡检不会重复报警。",
+    "配送遅延と未完了の引渡しを確認し、警告の重複を防止しました。",
+    "Checked overdue delivery and incomplete handover without duplicate alerts.",
+  ],
+  ["样例运费回答", "サンプル送料への回答", "Sample shipping fee answer"],
+  [
+    "普通问候不生成订单",
+    "挨拶から注文を作らない",
+    "Greetings do not create orders",
+  ],
+  ["CSV 记录数量一致", "CSV 件数の一致", "CSV row count matches"],
+  ["拒绝负数订单", "負数の注文を拒否", "Reject negative quantities"],
+  ["拦截重复订单", "重複注文を除外", "Block duplicate orders"],
+  ["保留新的有效订单", "新しい有効な注文を保持", "Keep valid new orders"],
+  [
+    "预计采收不计入可售库存",
+    "収穫見込みは販売可能在庫に含めない",
+    "Forecast harvest is not saleable stock",
+  ],
+  [
+    "库存不足时阻止承诺",
+    "在庫不足時は受注確約を止める",
+    "Block promises when stock is short",
+  ],
+  [
+    "模拟采收后重新核算库存",
+    "模擬収穫後に在庫を再計算",
+    "Recalculate after simulated harvest",
+  ],
+  [
+    "生成带前置关系的作业",
+    "先行作業付きタスクを作成",
+    "Create dependent tasks",
+  ],
+  [
+    "拒单后不分配给同一司机",
+    "辞退した同じ担当者へ戻さない",
+    "Do not reassign to a driver who declined",
+  ],
+  ["人员排程时间冲突", "担当者の時間重複", "Staff scheduling conflicts"],
+  [
+    "识别无法按期完成的配送",
+    "期限に間に合わない配送を検出",
+    "Detect late deliveries",
+  ],
+  [
+    "只有面单不能确认送达",
+    "送り状だけで配達完了にしない",
+    "A label alone is not proof of delivery",
+  ],
+  ["超时作业被标记", "遅延作業を記録", "Overdue work flagged"],
+  [
+    "重复巡检不重复报警",
+    "再確認で警告を重複させない",
+    "Repeated checks do not duplicate alerts",
+  ],
+  [
+    "模拟测试完成：{{0}} / {{1}} 项通过。未调用外部 API。",
+    "シミュレーション完了：{{0}} / {{1}} 項目に合格。外部 API は呼び出していません。",
+    "Simulation complete: {{0}} / {{1}} checks passed. No external APIs were called.",
+  ],
+  [
+    "本步骤未完成，请查看错误提示。",
+    "この手順は未完了です。エラー内容を確認してください。",
+    "This step did not complete. Review the error message.",
+  ],
+  [
+    "已排除 {{0}} 笔重复订单。",
+    "重複注文 {{0}} 件を除外しました。",
+    "Excluded {{0}} duplicate orders.",
+  ],
+  [
+    "读取库存、待确认订单和作业进度。",
+    "在庫・確認待ち注文・作業進捗を読み取りました。",
+    "Read inventory, orders awaiting review and task progress.",
+  ],
+  [
+    "模型尚未配置，未发起外部调用。",
+    "モデル未設定のため、外部 API は呼び出していません。",
+    "No model is configured; no external call was made.",
+  ],
+  [
+    "使用固定样例回复，不进行真实图片或语音识别。",
+    "固定のサンプル応答を使用します。実画像・音声の認識は行いません。",
+    "Uses fixed sample replies, not real image or audio recognition.",
+  ],
+  [
+    "检查库存与前置任务，生成作业邀请。",
+    "在庫と先行作業を確認し、担当依頼を作成しました。",
+    "Checked inventory and dependencies, then created task offers.",
+  ],
+  [
+    "在本机运行相同的 Python 排程程序，检查工时冲突。",
+    "同じ Python 排程プログラムをローカルで実行し、時間の重複を確認しました。",
+    "Ran the same Python scheduler locally to check time conflicts.",
+  ],
+  [
+    "模拟排程检查了 {{0}} 项作业，发现 {{1}} 项时限冲突。",
+    "模擬排程で {{0}} 件の作業を確認し、{{1}} 件の期限超過を検出しました。",
+    "Simulated scheduling checked {{0}} tasks and found {{1}} deadline conflicts.",
+  ],
+  [
+    "读取模拟天气公告，不访问真实网站。",
+    "架空の気象情報を使用します。実際のサイトにはアクセスしません。",
+    "Read sample weather information without visiting real websites.",
+  ],
+  ["模拟天气公告", "架空の気象情報", "Sample weather notice"],
+  [
+    "已读取模拟公告，未更改真实配送承诺。",
+    "架空の情報を読み込みました。実際の配送約束は変更していません。",
+    "Read the sample notice without changing real delivery commitments.",
+  ],
+  [
+    "检索天气与配送公开公告。",
+    "気象と配送の公開情報を検索しました。",
+    "Searched public weather and delivery notices.",
+  ],
+  [
+    "计算人员工时，检查配送时间冲突。",
+    "担当者の工数と配送時間の重複を計算しました。",
+    "Calculated staffing and delivery schedule conflicts.",
+  ],
+  [
+    "编写并校验新的订单表转换程序。",
+    "新しい注文表の変換プログラムを作成・検証しました。",
+    "Created and verified an order conversion program.",
+  ],
+  [
+    "转写语音消息。",
+    "音声メッセージを書き起こしました。",
+    "Transcribed the voice message.",
+  ],
+  [
+    "理解消息内容并决定是否转交订单处理。",
+    "メッセージを理解し、注文処理が必要か判断しました。",
+    "Interpreted the message and determined whether order processing was needed.",
+  ],
+  ["规则待确认", "ルールの確認待ち", "Rule awaiting confirmation"],
+  ["模拟发货", "模擬発送", "Simulated dispatch"],
+  ["发货检查", "発送確認", "Dispatch check"],
+  [
+    "我把这句话整理成今天有效的发货规则草案。请先看例子，确认分批发货的边界；确认前不会启用。",
+    "この発言を今日有効な発送ルール案にしました。例を見ながら分納の条件を確認してください。確認するまで有効になりません。",
+    "I drafted a shipping rule for today. Review the examples and split-shipment conditions; it stays inactive until confirmed.",
+  ],
+  [
+    "将规则限制为今天、已装箱、客户同意分批，不自动承诺到达日期。",
+    "今日・梱包済み・分納同意という条件に整理しました。到着日は確約しません。",
+    "Scoped the rule to today, packed boxes and split consent, without guaranteeing arrival.",
+  ],
+  [
+    "用已装箱、未装箱和同日到达要求检查规则边界。",
+    "梱包済み・未梱包・同日到着の例でルールの境界を確認しました。",
+    "Checked the rule with packed, unpacked and same-arrival examples.",
+  ],
+  [
+    "规则已确认并启用，仅适用于今天。发货前会重新检查装箱状态和客户要求。",
+    "ルールを確認して有効にしました。本日限りです。発送前に梱包状態とお客様の条件を再確認します。",
+    "The confirmed rule is active for today only. Packing and customer requirements are rechecked before dispatch.",
+  ],
+  [
+    "保存已确认规则和有效日期；未确认的新草案不会覆盖它。",
+    "確認済みルールと有効日を保存しました。未確認の草案では上書きしません。",
+    "Saved the confirmed rule and date. Unconfirmed drafts cannot replace it.",
+  ],
+  [
+    "规则尚未确认，不执行发货。",
+    "ルールが未確認のため発送しません。",
+    "The rule is not confirmed; no dispatch.",
+  ],
+  [
+    "今天的规则已过期，请重新确认。",
+    "ルールの有効日を過ぎました。再確認してください。",
+    "The rule has expired. Confirm a new rule.",
+  ],
+  [
+    "所有箱子已经处理，不重复发货。",
+    "すべての箱は処理済みです。重複発送しません。",
+    "All boxes have been processed. No duplicate dispatch.",
+  ],
+  [
+    "已有箱子发出，同日到达需要人工重新协调，不能自动承诺。",
+    "発送済みの箱があります。同日到着は人による再調整が必要で、自動確約はできません。",
+    "Some boxes already shipped. Same-day arrival requires manual coordination.",
+  ],
+  [
+    "没有已装好的箱子，暂不发货。",
+    "梱包済みの箱がないため、発送を保留します。",
+    "No boxes are packed; hold dispatch.",
+  ],
+  [
+    "客户要求同一天收到，不能拆开发货；等待全部装好后再确认配送方案。",
+    "お客様が同日到着を希望しているため分納しません。全箱の梱包後に配送方法を確認します。",
+    "The customer requires same-day arrival. Wait for all boxes, then confirm the delivery plan.",
+  ],
+  [
+    "已选择整单一起发货，等待全部箱子装好。",
+    "一括発送を選択したため、すべての梱包を待ちます。",
+    "Ship-together policy selected. Wait until every box is packed.",
+  ],
+  [
+    "先发一部分需要客户明确同意，请先确认。",
+    "一部の先行発送にはお客様の明確な同意が必要です。",
+    "Partial dispatch needs explicit customer consent first.",
+  ],
+  [
+    "客户已同意分批，只发送已装好的箱子，其余继续等待。",
+    "分納の同意を確認済みです。梱包済みの箱だけ発送し、残りは保留します。",
+    "Customer consent confirmed. Send only packed boxes and hold the rest.",
+  ],
+  [
+    "全部箱子已装好，可以一起发货；到达日期仍需配送方确认。",
+    "全箱の梱包が完了し、一括発送できます。到着日は配送会社の確認が必要です。",
+    "All boxes are packed and may ship together. The carrier must still confirm arrival.",
+  ],
+  [
+    "一箱已装好，一箱未装好；客户同意分批",
+    "1箱は梱包済み、1箱は未梱包。分納の同意あり",
+    "One packed, one unpacked; split consent given",
+  ],
+  [
+    "一箱已装好，但客户要求同一天收到",
+    "1箱は梱包済み。ただし同日到着を希望",
+    "One packed; customer requires same-day arrival",
+  ],
+  [
+    "一箱已装好，但还没有客户的分批同意",
+    "1箱は梱包済み。分納の同意は未確認",
+    "One packed; split consent not yet confirmed",
+  ],
+  ["两箱均已装好", "2箱とも梱包済み", "Both boxes packed"],
+  [
+    "规则草案已更新，请确认最新版本。",
+    "ルール案が更新されています。最新版を確認してください。",
+    "The rule draft changed. Review the latest version.",
+  ],
+  [
+    "规则或订单已更新，请重新检查。",
+    "ルールまたは注文が更新されました。再確認してください。",
+    "The rule or order changed. Review it again.",
+  ],
+  [
+    "请在模拟工作区运行测试。",
+    "シミュレーション画面でテストしてください。",
+    "Run this test in the simulation workspace.",
+  ],
+  [
+    "请等待当前测试完成。",
+    "現在のテストが終わるまでお待ちください。",
+    "Wait for the current test to finish.",
+  ],
+  ["工作区无效。", "ワークスペースが無効です。", "Invalid workspace."],
+  [
+    "模拟 CSV 格式不正确。",
+    "サンプル CSV の形式が正しくありません。",
+    "Invalid sample CSV format.",
+  ],
+  [
+    "模拟模式仅支持提供的示例 CSV 列名。",
+    "シミュレーションでは付属のサンプル CSV 列名を使用してください。",
+    "Use the supplied sample CSV column names in simulation mode.",
+  ],
+  [
+    "模拟排程未完成，请检查本机 Python 环境。",
+    "模擬排程を実行できません。ローカル Python 環境を確認してください。",
+    "Simulated scheduling failed. Check the local Python environment.",
+  ],
+];

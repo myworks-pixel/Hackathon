@@ -4,6 +4,9 @@ import { RunnableLambda } from "@langchain/core/runnables";
 import { END, START, StateGraph, StateSchema } from "@langchain/langgraph";
 import { tool } from "langchain";
 import { z } from "zod";
+import { disableExternalTracing } from "./partner-config.mjs";
+
+disableExternalTracing();
 
 // Exercise the real libraries without calling a model or requiring credentials.
 const add = tool(({ a, b }) => a + b, {
